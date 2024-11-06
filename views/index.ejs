@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Youth Group Attendance</title>
+</head>
+
+<body>
+  <h1>Add or Update Student Details</h1>
+  <form action="/add-or-update-student-details" method="POST">
+    <input type="hidden" name="StudentID" value="<%= student ? student.StudentID : '' %>">
+    <input type="text" name="FirstName" placeholder="First Name" value="<%= student ? student.FirstName : '' %>"
+      required>
+    <input type="text" name="LastName" placeholder="Last Name" value="<%= student ? student.LastName : '' %>" required>
+    <input type="number" name="Age" placeholder="Age" value="<%= student ? student.Age : '' %>">
+    <input type="text" name="Grade" placeholder="Grade" value="<%= student ? student.Grade : '' %>">
+    <input type="text" name="School" placeholder="School" value="<%= student ? student.School : '' %>">
+    <input type="date" name="Birthday" placeholder="Birthday" value="<%= student ? student.Birthday : '' %>">
+    <input type="date" name="DateBaptized" placeholder="Date Baptized"
+      value="<%= student ? student.DateBaptized : '' %>">
+    <button type="submit">
+      <%= student ? 'Update' : 'Add' %> Student Details
+    </button>
+  </form>
+
+  <a href="/attendance">View Attendance</a>
+</body>
+
+</html>

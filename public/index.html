@@ -17,15 +17,22 @@
             justify-content: center;
             padding: 20px;
         }
-        .form-container, .details-container {
+        .form-container {
+            flex: 1;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 25%;
+        }
+        .details-container {
             flex: 1;
             padding: 20px;
             margin: 10px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-        }
-        .details-container {
             max-width: 600px;
         }
         h1, h2 {
@@ -159,6 +166,10 @@
             return new Date(dateString).toLocaleDateString('en-US', options);
         }
 
+        function sanitizeValue(value) {
+            return value === null || value === "null" || value === "NULL" ? '' : value;
+        }
+
         async function fetchStudentDetails() {
             try {
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails?');
@@ -170,12 +181,12 @@
                         const formattedBirthday = formatDate(student.Birthday);
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${student.FirstName}</td>
-                            <td>${student.LastName}</td>
-                            <td>${student.Grade}</td>
+                            <td>${sanitizeValue(student.FirstName)}</td>
+                            <td>${sanitizeValue(student.LastName)}</td>
+                            <td>${sanitizeValue(student.Grade)}</td>
                             <td>${formattedBirthday}</td>
-                            <td>${student.Parent1}, ${student.Parent2}</td>
-                            <td>${student.ParentPhone}</td>
+                            <td>${sanitizeValue(student.Parent1)}, ${sanitizeValue(student.Parent2)}</td>
+                            <td>${sanitizeValue(student.ParentPhone)}</td>
                         `;
                         studentDetailsBody.appendChild(row);
                     });

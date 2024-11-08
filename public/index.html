@@ -33,7 +33,7 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            max-width: 600px;
+            max-width: 70%;
         }
         h1, h2 {
             text-align: center;
@@ -152,6 +152,8 @@
                             <th>Birthday</th>
                             <th>Parents</th>
                             <th>Parent Phone</th>
+                            <th>Date Baptized</th>
+                            <th>Student Address</th>
                         </tr>
                     </thead>
                     <tbody id="studentDetailsBody">
@@ -180,6 +182,7 @@
                     studentDetailsBody.innerHTML = '';
                     students.forEach(student => {
                         const formattedBirthday = formatDate(student.Birthday);
+                        const formattedDateBaptized = formatDate(student.DateBaptized);
                         const row = document.createElement('tr');
                         row.innerHTML = `
                             <td>${sanitizeValue(student.FirstName)}</td>
@@ -188,6 +191,8 @@
                             <td>${formattedBirthday}</td>
                             <td>${sanitizeValue(student.Parent1)}, ${sanitizeValue(student.Parent2)}</td>
                             <td>${sanitizeValue(student.ParentPhone)}</td>
+                            <td>${formattedDateBaptized}</td>
+                            <td>${sanitizeValue(student.StudentAddress)}</td>
                         `;
                         studentDetailsBody.appendChild(row);
                     });

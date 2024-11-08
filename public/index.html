@@ -258,6 +258,14 @@
                 return;
             }
 
+            // Handle empty Birthday and DateBaptized
+            if (!data.Birthday) {
+                data.Birthday = null;
+            }
+            if (!data.DateBaptized) {
+                data.DateBaptized = null;
+            }
+
             try {
                 console.log('Sending data:', data); // Debugging line
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails', {

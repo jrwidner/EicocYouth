@@ -77,14 +77,14 @@
                 return;
             }
 
-            // Validate phone number (simple validation for 10-15 digits)
-            const phonePattern = /^\d{10,15}$/;
+            // Validate phone number (format xxx-xxx-xxxx)
+            const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
             if (data.ParentPhone && !phonePattern.test(data.ParentPhone)) {
-                alert('Please enter a valid Parent Phone number (10-15 digits).');
+                alert('Please enter a valid Parent Phone number (xxx-xxx-xxxx).');
                 return;
             }
             if (data.StudentPhone && !phonePattern.test(data.StudentPhone)) {
-                alert('Please enter a valid Student Phone number (10-15 digits).');
+                alert('Please enter a valid Student Phone number (xxx-xxx-xxxx).');
                 return;
             }
 
@@ -97,7 +97,7 @@
 
             try {
                 console.log('Sending data:', data); // Debugging line
-                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails?', {
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails?code=q0P7OkHKRTtLfygOfK1suAoRG62rAI9xFKiJFaJcwidwAzFumf8UIg%3D%3D', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

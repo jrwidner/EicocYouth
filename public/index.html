@@ -80,6 +80,11 @@
     </div>
 
     <script>
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
         async function fetchStudentDetails() {
             try {
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails?');
@@ -89,7 +94,8 @@
                     studentDetailsDiv.innerHTML = '';
                     students.forEach(student => {
                         const studentDiv = document.createElement('div');
-                        studentDiv.innerHTML = `<strong>${student.FirstName} ${student.LastName}</strong><br>Grade: ${student.Grade}<br>Birthday: ${student.Birthday}`;
+                        const formattedBirthday = formatDate(student.Birthday);
+                        studentDiv.innerHTML = `<strong>${student.FirstName} ${student.LastName}</strong> Grade: ${student.Grade} Birthday: ${formattedBirthday} Parents: ${student.Parent1}, ${student.Parent2} Parent Phone: ${student.ParentPhone}`;
                         studentDetailsDiv.appendChild(studentDiv);
                     });
                 } else {
@@ -137,7 +143,7 @@
 
             try {
                 console.log('Sending data:', data); // Debugging line
-                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails?', {
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails?code=q0P7OkHKRTtLfygOfK1suAoRG62rAI9xFKiJFaJcwidwAzFumf8UIg%3D%3D', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -85,9 +85,8 @@
     </style>
 </head>
 <body>
-   
+    <h1>Add Student</h1>
     <div class="container">
-        
         <div class="form-container">
             <h2>Add Student</h2>
             <form id="studentForm">
@@ -101,13 +100,13 @@
                 <input type="text" id="Grade" name="Grade" required>
 
                 <label for="School">School:</label>
-                <input type="text" id="School" name="School" >
+                <input type="text" id="School" name="School">
 
                 <label for="Birthday">Birthday:</label>
                 <input type="date" id="Birthday" name="Birthday">
 
                 <label for="DateBaptized">Date Baptized:</label>
-                <input type="date" id="DateBaptized" name="DateBaptized" >
+                <input type="date" id="DateBaptized" name="DateBaptized">
 
                 <label for="GradYear">Graduation Year:</label>
                 <input type="number" id="GradYear" name="GradYear">
@@ -152,6 +151,7 @@
                             <th>Last Name</th>
                             <th>Grade</th>
                             <th>Birthday</th>
+                            <th>Age</th>
                             <th>Parents</th>
                             <th>Parent Phone</th>
                             <th>Date Baptized</th>
@@ -167,8 +167,23 @@
 
     <script>
         function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            if (date.getTime() === new Date('1969-12-31').getTime()) return '';
             const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-            return new Date(dateString).toLocaleDateString('en-US', options);
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function calculateAge(birthday) {
+            if (!birthday) return '';
+            const birthDate = new Date(birthday);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
         }
 
         function sanitizeValue(value) {
@@ -185,12 +200,14 @@
                     students.forEach(student => {
                         const formattedBirthday = formatDate(student.Birthday);
                         const formattedDateBaptized = formatDate(student.DateBaptized);
+                        const age = calculateAge(student.Birthday);
                         const row = document.createElement('tr');
                         row.innerHTML = `
                             <td>${sanitizeValue(student.FirstName)}</td>
                             <td>${sanitizeValue(student.LastName)}</td>
                             <td>${sanitizeValue(student.Grade)}</td>
                             <td>${formattedBirthday}</td>
+                            <td>${age}</td>
                             <td>${sanitizeValue(student.Parent1)}, ${sanitizeValue(student.Parent2)}</td>
                             <td>${sanitizeValue(student.ParentPhone)}</td>
                             <td>${formattedDateBaptized}</td>
@@ -243,7 +260,7 @@
 
             try {
                 console.log('Sending data:', data); // Debugging line
-                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails?code=q0P7OkHKRTtLfygOfK1suAoRG62rAI9xFKiJFaJcwidwAzFumf8UIg%3D%3D', {
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -27,21 +27,25 @@
 
     <script>
         async function fetchStudentDetails() {
-            const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails');
-            const students = await response.json();
-            const studentSelect = document.getElementById('student');
-
-            students.forEach(student => {
-                const option = document.createElement('option');
-                option.value = student.StudentID;
-                option.textContent = `${student.FirstName} ${student.LastName}`;
-                studentSelect.appendChild(option);
-            });
+            try {
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails');
+                const students = await response.json();
+                const studentSelect = document.getElementById('student');
+    
+                students.forEach(student => {
+                    const option = document.createElement('option');
+                    option.value = student.StudentID;
+                    option.textContent = `${student.FirstName} ${student.LastName}`;
+                    studentSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching student details:', error);
+            }
         }
-
+    
         document.getElementById('attendanceForm').addEventListener('submit', async (event) => {
             event.preventDefault();
-
+    
             const formData = new FormData(event.target);
             const data = {
                 StudentID: formData.get('student'),
@@ -49,22 +53,31 @@
                 EventDate: formData.get('eventDate'),
                 AttendanceStatus: formData.get('attendanceStatus')
             };
-
-            const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/UpdateStudentAttendance', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                alert('Attendance updated successfully');
-            } else {
-                alert('Failed to update attendance');
+    
+            console.log('Data being sent in POST request:', data);
+    
+            try {
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/UpdateStudentAttendance', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+    
+                if (response.ok) {
+                    alert('Attendance updated successfully');
+                } else {
+                    const errorData = await response.json();
+                    console.error('Error updating attendance:', errorData);
+                    alert('Failed to update attendance: ' + JSON.stringify(errorData));
+                }
+            } catch (error) {
+                console.error('Error during fetch:', error);
+                alert('Failed to update attendance: ' + error.message);
             }
         });
-
+    
         fetchStudentDetails();
     </script>
 </body>

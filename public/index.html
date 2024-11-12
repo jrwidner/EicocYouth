@@ -164,8 +164,7 @@
             </div>
         </div>
     </div>
-
-    <script>
+<script>
         function formatDate(dateString) {
             if (!dateString) return '';
             const date = new Date(dateString);
@@ -260,10 +259,10 @@
     
             // Handle empty Birthday and DateBaptized
             if (!data.Birthday) {
-                data.Birthday = null;
+                data.Birthday = "null";
             }
             if (!data.DateBaptized) {
-                data.DateBaptized = null;
+                data.DateBaptized = "null";
             }
     
             try {
@@ -291,6 +290,6 @@
     
         // Fetch and display student details on page load
         fetchStudentDetails();
-    </script>    
+    </script>      
 </body>
 </html>

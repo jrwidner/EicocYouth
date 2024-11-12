@@ -15,6 +15,32 @@
             flex: 1;
             margin-right: 20px;
         }
+        form div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
         table {
             flex: 2;
             border-collapse: collapse;
@@ -43,54 +69,70 @@
     <div>
         <h1>Student Details Form</h1>
         <form id="studentForm">
-            <label for="FirstName">First Name:</label>
-            <input type="text" id="FirstName" name="FirstName" required><br>
-
-            <label for="LastName">Last Name:</label>
-            <input type="text" id="LastName" name="LastName" required><br>
-
-            <label for="Grade">Grade:</label>
-            <input type="text" id="Grade" name="Grade" required><br>
-
-            <label for="School">School:</label>
-            <input type="text" id="School" name="School"><br>
-
-            <label for="Birthday">Birthday:</label>
-            <input type="date" id="Birthday" name="Birthday"><br>
-
-            <label for="DateBaptized">Date Baptized:</label>
-            <input type="date" id="DateBaptized" name="DateBaptized"><br>
-
-            <label for="GradYear">Graduation Year:</label>
-            <input type="number" id="GradYear" name="GradYear"><br>
-
-            <label for="District">District:</label>
-            <input type="text" id="District" name="District"><br>
-
-            <label for="Parent1">Parent 1:</label>
-            <input type="text" id="Parent1" name="Parent1"><br>
-
-            <label for="Parent2">Parent 2:</label>
-            <input type="text" id="Parent2" name="Parent2"><br>
-
-            <label for="ParentPhone">Parent Phone:</label>
-            <input type="text" id="ParentPhone" name="ParentPhone"><br>
-
-            <label for="ParentEmail">Parent Email:</label>
-            <input type="email" id="ParentEmail" name="ParentEmail"><br>
-
-            <label for="StudentPhone">Student Phone:</label>
-            <input type="text" id="StudentPhone" name="StudentPhone"><br>
-
-            <label for="StudentEmail">Student Email:</label>
-            <input type="email" id="StudentEmail" name="StudentEmail"><br>
-
-            <label for="StudentAddress">Student Address:</label>
-            <input type="text" id="StudentAddress" name="StudentAddress"><br>
-
-            <label for="InvolvedIn">Involved In:</label>
-            <input type="text" id="InvolvedIn" name="InvolvedIn"><br>
-
+            <div>
+                <label for="FirstName">First Name:</label>
+                <input type="text" id="FirstName" name="FirstName" required>
+            </div>
+            <div>
+                <label for="LastName">Last Name:</label>
+                <input type="text" id="LastName" name="LastName" required>
+            </div>
+            <div>
+                <label for="Grade">Grade:</label>
+                <input type="text" id="Grade" name="Grade" required>
+            </div>
+            <div>
+                <label for="School">School:</label>
+                <input type="text" id="School" name="School">
+            </div>
+            <div>
+                <label for="Birthday">Birthday:</label>
+                <input type="date" id="Birthday" name="Birthday">
+            </div>
+            <div>
+                <label for="DateBaptized">Date Baptized:</label>
+                <input type="date" id="DateBaptized" name="DateBaptized">
+            </div>
+            <div>
+                <label for="GradYear">Graduation Year:</label>
+                <input type="number" id="GradYear" name="GradYear">
+            </div>
+            <div>
+                <label for="District">District:</label>
+                <input type="text" id="District" name="District">
+            </div>
+            <div>
+                <label for="Parent1">Parent 1:</label>
+                <input type="text" id="Parent1" name="Parent1">
+            </div>
+            <div>
+                <label for="Parent2">Parent 2:</label>
+                <input type="text" id="Parent2" name="Parent2">
+            </div>
+            <div>
+                <label for="ParentPhone">Parent Phone:</label>
+                <input type="text" id="ParentPhone" name="ParentPhone">
+            </div>
+            <div>
+                <label for="ParentEmail">Parent Email:</label>
+                <input type="email" id="ParentEmail" name="ParentEmail">
+            </div>
+            <div>
+                <label for="StudentPhone">Student Phone:</label>
+                <input type="text" id="StudentPhone" name="StudentPhone">
+            </div>
+            <div>
+                <label for="StudentEmail">Student Email:</label>
+                <input type="email" id="StudentEmail" name="StudentEmail">
+            </div>
+            <div>
+                <label for="StudentAddress">Student Address:</label>
+                <input type="text" id="StudentAddress" name="StudentAddress">
+            </div>
+            <div>
+                <label for="InvolvedIn">Involved In:</label>
+                <input type="text" id="InvolvedIn" name="InvolvedIn">
+            </div>
             <button type="submit">Submit</button>
         </form>
     </div>

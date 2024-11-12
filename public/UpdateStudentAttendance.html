@@ -33,6 +33,7 @@
             try {
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails');
                 const students = await response.json();
+                students.sort((a, b) => a.FirstName.localeCompare(b.FirstName)); // Sort students by first name
                 const studentSelect = document.getElementById('student');
 
                 students.forEach(student => {

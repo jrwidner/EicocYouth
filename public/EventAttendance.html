@@ -60,7 +60,7 @@
                         const cellAttendee = document.createElement('td');
                         cellAttendee.textContent = `${detail.FirstName} ${detail.LastName}`;
                         const cellBroughtFriend = document.createElement('td');
-                        cellBroughtFriend.textContent = detail.BroughtFriend ? 'Yes' : 'No';
+                        cellBroughtFriend.textContent = detail.BroughtFriend === 'Yes' ? 'Yes' : 'No';
                         row.appendChild(cellAttendee);
                         row.appendChild(cellBroughtFriend);
                         tbody.appendChild(row);

@@ -173,7 +173,7 @@
             const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             return date.toLocaleDateString('en-US', options);
         }
-
+    
         function calculateAge(birthday) {
             if (!birthday) return '';
             const birthDate = new Date(birthday);
@@ -185,11 +185,11 @@
             }
             return age;
         }
-
+    
         function sanitizeValue(value) {
             return value === null || value === "null" || value === "NULL" ? '' : value;
         }
-
+    
         async function fetchStudentDetails() {
             try {
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails?');
@@ -222,13 +222,13 @@
                 console.error('Fetch error:', error);
             }
         }
-
+    
         document.getElementById('studentForm').addEventListener('submit', async function(event) {
             event.preventDefault();
-
+    
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
-
+    
             // Validate email
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (data.ParentEmail && !emailPattern.test(data.ParentEmail)) {
@@ -239,7 +239,7 @@
                 alert('Please enter a valid Student Email.');
                 return;
             }
-
+    
             // Validate phone number (format xxx-xxx-xxxx)
             const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
             if (data.ParentPhone && !phonePattern.test(data.ParentPhone)) {
@@ -250,14 +250,14 @@
                 alert('Please enter a valid Student Phone number (xxx-xxx-xxxx).');
                 return;
             }
-
+    
             // Validate Graduation Year (4-digit year)
             const yearPattern = /^\d{4}$/;
             if (data.GradYear && !yearPattern.test(data.GradYear)) {
                 alert('Please enter a valid 4-digit Graduation Year.');
                 return;
             }
-
+    
             // Handle empty Birthday and DateBaptized
             if (!data.Birthday) {
                 data.Birthday = null;
@@ -265,7 +265,7 @@
             if (!data.DateBaptized) {
                 data.DateBaptized = null;
             }
-
+    
             try {
                 console.log('Sending data:', data); // Debugging line
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails', {
@@ -275,7 +275,7 @@
                     },
                     body: JSON.stringify(data)
                 });
-
+    
                 if (response.ok) {
                     alert('Student added successfully!');
                     fetchStudentDetails(); // Redraw the student details
@@ -288,9 +288,9 @@
                 alert('Error: ' + error.message);
             }
         });
-
+    
         // Fetch and display student details on page load
         fetchStudentDetails();
-    </script>
+    </script>    
 </body>
 </html>

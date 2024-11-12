@@ -4,79 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        form {
+            flex: 1;
+            margin-right: 20px;
+        }
+        table {
+            flex: 2;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Student Details Form</h1>
-    <form id="studentForm">
-        <label for="FirstName">First Name:</label>
-        <input type="text" id="FirstName" name="FirstName" required><br>
+    <div>
+        <h1>Student Details Form</h1>
+        <form id="studentForm">
+            <label for="FirstName">First Name:</label>
+            <input type="text" id="FirstName" name="FirstName" required><br>
 
-        <label for="LastName">Last Name:</label>
-        <input type="text" id="LastName" name="LastName" required><br>
+            <label for="LastName">Last Name:</label>
+            <input type="text" id="LastName" name="LastName" required><br>
 
-        <label for="Grade">Grade:</label>
-        <input type="text" id="Grade" name="Grade" required><br>
+            <label for="Grade">Grade:</label>
+            <input type="text" id="Grade" name="Grade" required><br>
 
-        <label for="School">School:</label>
-        <input type="text" id="School" name="School"><br>
+            <label for="School">School:</label>
+            <input type="text" id="School" name="School"><br>
 
-        <label for="Birthday">Birthday:</label>
-        <input type="date" id="Birthday" name="Birthday"><br>
+            <label for="Birthday">Birthday:</label>
+            <input type="date" id="Birthday" name="Birthday"><br>
 
-        <label for="DateBaptized">Date Baptized:</label>
-        <input type="date" id="DateBaptized" name="DateBaptized"><br>
+            <label for="DateBaptized">Date Baptized:</label>
+            <input type="date" id="DateBaptized" name="DateBaptized"><br>
 
-        <label for="GradYear">Graduation Year:</label>
-        <input type="number" id="GradYear" name="GradYear"><br>
+            <label for="GradYear">Graduation Year:</label>
+            <input type="number" id="GradYear" name="GradYear"><br>
 
-        <label for="District">District:</label>
-        <input type="text" id="District" name="District"><br>
+            <label for="District">District:</label>
+            <input type="text" id="District" name="District"><br>
 
-        <label for="Parent1">Parent 1:</label>
-        <input type="text" id="Parent1" name="Parent1"><br>
+            <label for="Parent1">Parent 1:</label>
+            <input type="text" id="Parent1" name="Parent1"><br>
 
-        <label for="Parent2">Parent 2:</label>
-        <input type="text" id="Parent2" name="Parent2"><br>
+            <label for="Parent2">Parent 2:</label>
+            <input type="text" id="Parent2" name="Parent2"><br>
 
-        <label for="ParentPhone">Parent Phone:</label>
-        <input type="text" id="ParentPhone" name="ParentPhone"><br>
+            <label for="ParentPhone">Parent Phone:</label>
+            <input type="text" id="ParentPhone" name="ParentPhone"><br>
 
-        <label for="ParentEmail">Parent Email:</label>
-        <input type="email" id="ParentEmail" name="ParentEmail"><br>
+            <label for="ParentEmail">Parent Email:</label>
+            <input type="email" id="ParentEmail" name="ParentEmail"><br>
 
-        <label for="StudentPhone">Student Phone:</label>
-        <input type="text" id="StudentPhone" name="StudentPhone"><br>
+            <label for="StudentPhone">Student Phone:</label>
+            <input type="text" id="StudentPhone" name="StudentPhone"><br>
 
-        <label for="StudentEmail">Student Email:</label>
-        <input type="email" id="StudentEmail" name="StudentEmail"><br>
+            <label for="StudentEmail">Student Email:</label>
+            <input type="email" id="StudentEmail" name="StudentEmail"><br>
 
-        <label for="StudentAddress">Student Address:</label>
-        <input type="text" id="StudentAddress" name="StudentAddress"><br>
+            <label for="StudentAddress">Student Address:</label>
+            <input type="text" id="StudentAddress" name="StudentAddress"><br>
 
-        <label for="InvolvedIn">Involved In:</label>
-        <input type="text" id="InvolvedIn" name="InvolvedIn"><br>
+            <label for="InvolvedIn">Involved In:</label>
+            <input type="text" id="InvolvedIn" name="InvolvedIn"><br>
 
-        <button type="submit">Submit</button>
-    </form>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
-    <h2>Student Details</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Grade</th>
-                <th>Birthday</th>
-                <th>Age</th>
-                <th>Parents</th>
-                <th>Parent Phone</th>
-                <th>Date Baptized</th>
-                <th>Student Address</th>
-            </tr>
-        </thead>
-        <tbody id="studentDetailsBody">
-        </tbody>
-    </table>
+    <div>
+        <h2>Student Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Grade</th>
+                    <th>Birthday</th>
+                    <th>Age</th>
+                    <th>Parents</th>
+                    <th>Parent Phone</th>
+                    <th>Date Baptized</th>
+                    <th>Student Address</th>
+                </tr>
+            </thead>
+            <tbody id="studentDetailsBody">
+            </tbody>
+        </table>
+    </div>
 
     <script>
         function formatDate(dateString) {

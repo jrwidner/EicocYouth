@@ -3,118 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Details</title>
+    <title>Add Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .form-container {
+            flex: 1;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 25%;
+        }
+        .details-container {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            max-width: 70%;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 5px 0 3px;
+            color: #555;
+            font-size: 14px;
+        }
+        input, textarea, button {
+            width: 95%;
+            padding: 4px;
+            margin-bottom: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h1>Student Details Form</h1>
-    <form id="studentForm">
-        <label for="FirstName">First Name:</label>
-        <input type="text" id="FirstName" name="FirstName" required><br>
+    <h1>Add Student</h1>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add Student</h2>
+            <form id="studentForm">
+                <label for="FirstName">First Name:</label>
+                <input type="text" id="FirstName" name="FirstName" required>
 
-        <label for="LastName">Last Name:</label>
-        <input type="text" id="LastName" name="LastName" required><br>
+                <label for="LastName">Last Name:</label>
+                <input type="text" id="LastName" name="LastName" required>
 
-        <label for="Grade">Grade:</label>
-        <input type="text" id="Grade" name="Grade" required><br>
+                <label for="Grade">Grade:</label>
+                <input type="text" id="Grade" name="Grade" required>
 
-        <label for="School">School:</label>
-        <input type="text" id="School" name="School"><br>
+                <label for="School">School:</label>
+                <input type="text" id="School" name="School">
 
-        <label for="Birthday">Birthday:</label>
-        <input type="date" id="Birthday" name="Birthday"><br>
+                <label for="Birthday">Birthday:</label>
+                <input type="date" id="Birthday" name="Birthday">
 
-        <label for="DateBaptized">Date Baptized:</label>
-        <input type="date" id="DateBaptized" name="DateBaptized"><br>
+                <label for="DateBaptized">Date Baptized:</label>
+                <input type="date" id="DateBaptized" name="DateBaptized">
 
-        <label for="GradYear">Graduation Year:</label>
-        <input type="number" id="GradYear" name="GradYear"><br>
+                <label for="GradYear">Graduation Year:</label>
+                <input type="number" id="GradYear" name="GradYear">
 
-        <label for="District">District:</label>
-        <input type="text" id="District" name="District"><br>
+                <label for="District">District:</label>
+                <input type="text" id="District" name="District">
 
-        <label for="Parent1">Parent 1:</label>
-        <input type="text" id="Parent1" name="Parent1"><br>
+                <label for="Parent1">Parent 1:</label>
+                <input type="text" id="Parent1" name="Parent1">
 
-        <label for="Parent2">Parent 2:</label>
-        <input type="text" id="Parent2" name="Parent2"><br>
+                <label for="Parent2">Parent 2:</label>
+                <input type="text" id="Parent2" name="Parent2">
 
-        <label for="ParentPhone">Parent Phone:</label>
-        <input type="text" id="ParentPhone" name="ParentPhone"><br>
+                <label for="ParentPhone">Parent Phone:</label>
+                <input type="text" id="ParentPhone" name="ParentPhone">
 
-        <label for="ParentEmail">Parent Email:</label>
-        <input type="email" id="ParentEmail" name="ParentEmail"><br>
+                <label for="ParentEmail">Parent Email:</label>
+                <input type="email" id="ParentEmail" name="ParentEmail">
 
-        <label for="StudentPhone">Student Phone:</label>
-        <input type="text" id="StudentPhone" name="StudentPhone"><br>
+                <label for="StudentPhone">Student Phone:</label>
+                <input type="text" id="StudentPhone" name="StudentPhone">
 
-        <label for="StudentEmail">Student Email:</label>
-        <input type="email" id="StudentEmail" name="StudentEmail"><br>
+                <label for="StudentEmail">Student Email:</label>
+                <input type="email" id="StudentEmail" name="StudentEmail">
 
-        <label for="StudentAddress">Student Address:</label>
-        <input type="text" id="StudentAddress" name="StudentAddress"><br>
+                <label for="StudentAddress">Student Address:</label>
+                <input type="text" id="StudentAddress" name="StudentAddress">
 
-        <label for="InvolvedIn">Involved In:</label>
-        <input type="text" id="InvolvedIn" name="InvolvedIn"><br>
+                <label for="InvolvedIn">Involved In:</label>
+                <textarea id="InvolvedIn" name="InvolvedIn" rows="3"></textarea>
 
-        <button type="submit">Submit</button>
-    </form>
-
-    <h2>Student Details</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Grade</th>
-                <th>School</th>
-                <th>Birthday</th>
-                <th>Date Baptized</th>
-                <th>Graduation Year</th>
-                <th>District</th>
-                <th>Parent 1</th>
-                <th>Parent 2</th>
-                <th>Parent Phone</th>
-                <th>Parent Email</th>
-                <th>Student Phone</th>
-                <th>Student Email</th>
-                <th>Student Address</th>
-                <th>Involved In</th>
-            </tr>
-        </thead>
-        <tbody id="studentDetailsBody">
-            <!-- Student details will be appended here -->
-        </tbody>
-    </table>
+                <button type="submit">Add Student</button>
+            </form>
+        </div>
+        <div class="details-container">
+            <h2>Student Details</h2>
+            <div id="studentDetails">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Grade</th>
+                            <th>Birthday</th>
+                            <th>Age</th>
+                            <th>Parents</th>
+                            <th>Parent Phone</th>
+                            <th>Date Baptized</th>
+                            <th>Student Address</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentDetailsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <script>
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            if (date.getTime() === new Date('1969-12-31').getTime()) return '';
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function calculateAge(birthday) {
+            if (!birthday) return '';
+            const birthDate = new Date(birthday);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        function sanitizeValue(value) {
+            return value === null || value === "null" || value === "NULL" ? '' : value;
+        }
+
         async function fetchStudentDetails() {
             try {
-                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails');
+                const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/GetStudentDetails?');
                 if (response.ok) {
                     const students = await response.json();
                     const studentDetailsBody = document.getElementById('studentDetailsBody');
-                    studentDetailsBody.innerHTML = ''; // Clear existing rows
+                    studentDetailsBody.innerHTML = '';
                     students.forEach(student => {
+                        const formattedBirthday = formatDate(student.Birthday);
+                        const formattedDateBaptized = formatDate(student.DateBaptized);
+                        const age = calculateAge(student.Birthday);
                         const row = document.createElement('tr');
-                        const formattedBirthday = student.Birthday ? new Date(student.Birthday).toLocaleDateString() : '';
-                        const formattedDateBaptized = student.DateBaptized ? new Date(student.DateBaptized).toLocaleDateString() : '';
                         row.innerHTML = `
                             <td>${sanitizeValue(student.FirstName)}</td>
                             <td>${sanitizeValue(student.LastName)}</td>
                             <td>${sanitizeValue(student.Grade)}</td>
-                            <td>${sanitizeValue(student.School)}</td>
                             <td>${formattedBirthday}</td>
-                            <td>${formattedDateBaptized}</td>
-                            <td>${sanitizeValue(student.GradYear)}</td>
-                            <td>${sanitizeValue(student.District)}</td>
-                            <td>${sanitizeValue(student.Parent1)}</td>
-                            <td>${sanitizeValue(student.Parent2)}</td>
+                            <td>${age}</td>
+                            <td>${sanitizeValue(student.Parent1)}, ${sanitizeValue(student.Parent2)}</td>
                             <td>${sanitizeValue(student.ParentPhone)}</td>
-                            <td>${sanitizeValue(student.ParentEmail)}</td>
-                            <td>${sanitizeValue(student.StudentPhone)}</td>
-                            <td>${sanitizeValue(student.StudentEmail)}</td>
+                            <td>${formattedDateBaptized}</td>
                             <td>${sanitizeValue(student.StudentAddress)}</td>
-                            <td>${sanitizeValue(student.InvolvedIn)}</td>
                         `;
                         studentDetailsBody.appendChild(row);
                     });
@@ -131,9 +228,6 @@
 
             const formData = new FormData(event.target);
             const data = Object.fromEntries(formData.entries());
-
-            // Debug: Log input values
-            console.log('Form Data:', data);
 
             // Validate email
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -152,11 +246,15 @@
                 alert('Please enter a valid Parent Phone number (xxx-xxx-xxxx).');
                 return;
             }
+            if (data.StudentPhone && !phonePattern.test(data.StudentPhone)) {
+                alert('Please enter a valid Student Phone number (xxx-xxx-xxxx).');
+                return;
+            }
 
-            // Validate date (format YYYY-MM-DD)
-            const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-            if (data.DateBaptized && !datePattern.test(data.DateBaptized)) {
-                alert('Please enter a valid Date Baptized (YYYY-MM-DD).');
+            // Validate Graduation Year (4-digit year)
+            const yearPattern = /^\d{4}$/;
+            if (data.GradYear && !yearPattern.test(data.GradYear)) {
+                alert('Please enter a valid 4-digit Graduation Year.');
                 return;
             }
 
@@ -169,7 +267,7 @@
             }
 
             try {
-                console.log('Sending data:', JSON.stringify(data, null, 2)); // Debugging line
+                console.log('Sending data:', data); // Debugging line
                 const response = await fetch('https://eicocelderprayerfunc.azurewebsites.net/api/AddStudentDetails', {
                     method: 'POST',
                     headers: {
@@ -193,10 +291,6 @@
 
         // Fetch and display student details on page load
         fetchStudentDetails();
-
-        function sanitizeValue(value) {
-            return value ? value.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;") : '';
-        }
     </script>
 </body>
 </html>
